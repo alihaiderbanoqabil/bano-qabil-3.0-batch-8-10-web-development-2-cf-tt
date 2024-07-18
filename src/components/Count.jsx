@@ -7,8 +7,13 @@ const Count = () => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
     // const [first, setFirst] = useState(second)
     const data = { username: "ali", emil: "ali@gmail.com" };
-    let products = [];
+    // let products = [];
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("")
+
     const gertPoducts = async (url) => {
+        setIsLoading(true);
         try {
             const response = await axios(url,
                 // {
@@ -19,11 +24,19 @@ const Count = () => {
             )
             console.log("response: ", response);
             console.log("products: ", response.data);
-            // products = 
+            setProducts(response.data)
+            // products = response.data
+            // setIsLoading(false);
+
         } catch (error) {
             console.log("error: ", error);
+            // setIsLoading(false);
+            setError(error.message)
+
         } finally {
-            console.log("finally block calling!");
+            // console.log("finally block calling!");
+            setIsLoading(false);
+
         }
     }
 
@@ -81,7 +94,7 @@ const Count = () => {
     // console.log({ count: count });
     // console.log({ count });
     // console.log(count);
-
+    console.log({ products, isLoading, error });
     return (
         <div>
             <button onClick={() => increment()}>+</button>
