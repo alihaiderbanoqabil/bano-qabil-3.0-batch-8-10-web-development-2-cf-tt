@@ -1,9 +1,12 @@
 import Count from "./components/Count";
 import { Footer } from "./components/Footer";
+import Form from "./components/Form";
 import Greeting from "./components/Greeting";
 import { Header } from "./components/Header";
 import Parent from "./components/Parent";
+import { ParentComponent } from "./components/ParentComponent";
 import Products from "./components/Products";
+import { Todos } from "./components/Todos";
 // import Products from "./Products";
 
 // const studentMarks = [10,20,30,40, 50];
@@ -58,8 +61,11 @@ export default function App() {
   // console.log(name);
   return (
     <div>
+      <Todos />
+      {/* <ParentComponent /> */}
+      {/* <Form /> */}
       {/* <Products /> */}
-      <Count />
+      {/* <Count /> */}
       {/* <Header /> */}
       {/* <Products /> */}
       {/* <Header />
