@@ -61,7 +61,8 @@ export default function App() {
   // console.log(name);
   return (
     <div>
-      <Todos />
+      <Parent />
+      {/* <Todos /> */}
       {/* <ParentComponent /> */}
       {/* <Form /> */}
       {/* <Products /> */}

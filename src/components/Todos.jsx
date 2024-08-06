@@ -82,7 +82,7 @@ export const Todos = () => {
 
     useEffect(() => {
         console.log({ action, todos });
-        copiedTodos = [...todos]
+        copiedTodos = [...todos];
     }, [action]);
 
     console.log("todos: ", todos, copiedTodos);
