@@ -2,14 +2,15 @@ import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const Home = () => {
+const Layout = ({ children }) => {
     return (
         <>
-            {/* <Header /> */}
-            Home
-            {/* <Footer /> */}
+            <Header />
+            <main>{children}</main>
+            <Footer />
         </>
+
     )
 }
 
-export default Home
+export default Layout

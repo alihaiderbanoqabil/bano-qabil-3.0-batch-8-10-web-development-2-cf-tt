@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-
+import { routes } from '../routes';
 
 const Header = () => {
     return (
@@ -13,9 +13,16 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to={"/"} className='nav-link'>Home</Link>
+                        {/* {routes.map(({ path, title, isHidden }, index) => {
+                            return isHidden ? null : <Link key={`${index}-${path}`} to={`${path}`} className='nav-link'>{title}</Link>
+                        })} */}
+                        {routes.map(({ path, title }, index) => {
+                            return title && <Link key={`${index}-${path}`} to={`${path}`} className='nav-link'>{title}</Link>
+                        })}
+                        {/* <Link to={"/"} className='nav-link'>Home</Link>
                         <Link to={"/about"} className='nav-link'>About</Link>
                         <Link to={"/contact"} className='nav-link'>Contact</Link>
+                        <Link to={"/posts"} className='nav-link'>Posts</Link> */}
                         {/* <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/contact">Contact</Nav.Link> */}
