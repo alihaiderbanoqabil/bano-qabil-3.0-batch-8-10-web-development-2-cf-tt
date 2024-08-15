@@ -1,0 +1,8 @@
+npm i packageName1 packageName2 packageName3
+npm install packageName1 packageName2 packageName3
+
+
+
+start development server: npm start
+make a build: npm run build
+for uninstall any pacakge: npm uninstall packageName1 packageName2
