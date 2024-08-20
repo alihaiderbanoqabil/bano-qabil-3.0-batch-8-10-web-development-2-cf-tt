@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PostCard = (props) => {
-    const { id, title, body } = props
+    const { id, title, body } = props;
+    const navigate = useNavigate();
     return (
         <Card style={{ width: '100%' }}>
             <Card.Img variant="top" src="https://picsum.photos/200/300" />
@@ -12,8 +13,13 @@ const PostCard = (props) => {
                 <Card.Text>
                     {body}
                 </Card.Text>
-                <Link to={`/posts/${id}`} state={props} className='btn btn-primary'>View Details</Link>
-                {/* <Button variant="primary">Go somewhere</Button> */}
+                {/* <Link to={`/posts/${id}`} state={props} className='btn btn-primary'>View Details</Link> */}
+                <Button variant="primary" onClick={() => {
+                    navigate(`/posts/${id}`, {
+                        state: props,
+                        // replace: true
+                    })
+                }}>Go somewhere</Button>
             </Card.Body>
         </Card>
     )

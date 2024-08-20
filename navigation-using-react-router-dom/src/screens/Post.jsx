@@ -4,11 +4,12 @@ import { useFetch } from '../hooks/useFetch';
 
 const Post = () => {
     let { postId } = useParams();
-    let { state } = useLocation();
-    console.log(state, 'state');
+    let location = useLocation();
+    const { state } = location
+    console.log(state, 'state', location);
 
     const { isLoading, error, data } = useFetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-    console.log({ isLoading, error, data });
+    // console.log({ isLoading, error, data });
 
     return (
         <pre>{JSON.stringify(data, null, 4)}</pre>

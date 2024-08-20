@@ -1,6 +1,8 @@
 import About from "./screens/About";
 import Contact from "./screens/Contact";
+import Dashboard from "./screens/Dashboard";
 import Home from "./screens/Home";
+import { Login } from "./screens/Login";
 import Post from "./screens/Post";
 import Posts from "./screens/Posts";
 
@@ -10,6 +12,11 @@ export const routes = [
     //     screen: <Home />,
     //     title: "Home"
     // },
+    {
+        path: '/login',
+        screen: <Login />,
+        // title: "Contact"
+    },
     {
         path: '/contact',
         screen: <Contact />,
@@ -29,6 +36,11 @@ export const routes = [
         path: '/posts',
         screen: <Posts />,
         title: "Posts"
+    },
+    {
+        path: '/',
+        screen: <Dashboard />,
+        title: "Dashboard"
     },
     {
         path: '/posts/:postId',
