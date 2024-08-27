@@ -4,7 +4,7 @@ import Dashboard from "./screens/Dashboard";
 import Home from "./screens/Home";
 import { Login } from "./screens/Login";
 import Post from "./screens/Post";
-import Posts from "./screens/Posts";
+// import Posts from "./screens/Posts";
 
 export const routes = [
     // {
@@ -32,11 +32,11 @@ export const routes = [
         screen: <About />,
         title: "About"
     },
-    {
-        path: '/posts',
-        screen: <Posts />,
-        title: "Posts"
-    },
+    // {
+    //     path: '/posts',
+    //     screen: <Posts />,
+    //     title: "Posts"
+    // },
     {
         path: '/',
         screen: <Dashboard />,

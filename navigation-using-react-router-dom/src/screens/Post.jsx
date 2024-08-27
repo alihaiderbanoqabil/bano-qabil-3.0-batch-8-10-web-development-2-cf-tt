@@ -12,7 +12,12 @@ const Post = () => {
     // console.log({ isLoading, error, data });
 
     return (
-        <pre>{JSON.stringify(data, null, 4)}</pre>
+        <>
+            <button className="bg-sky-500 hover:bg-sky-700 hover:text-red-700 hover:font-black rounded-full p-4">
+                Save changes
+            </button>
+            <pre className='lg:font-bold border'>{JSON.stringify(data, null, 4)}</pre>
+        </>
     )
 }
 
