@@ -10,6 +10,7 @@ import { routes } from './routes.jsx'
 import Dashboard from './screens/Dashboard.jsx'
 import DashboardMessages from './screens/DashboardMessages.jsx'
 import DashboardTasks from './screens/DashboardTasks.jsx'
+import Todos from './screens/Todos.jsx'
 
 const App = () => {
   // const user = {
@@ -32,6 +33,7 @@ const App = () => {
               return <Route key={`${index}-${path}`} path={path} element={screen} />
             })
           }
+         
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Layout>

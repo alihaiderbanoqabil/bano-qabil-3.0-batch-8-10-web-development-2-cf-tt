@@ -4,6 +4,7 @@ import Dashboard from "./screens/Dashboard";
 import Home from "./screens/Home";
 import { Login } from "./screens/Login";
 import Post from "./screens/Post";
+import Todos from "./screens/Todos";
 // import Posts from "./screens/Posts";
 
 export const routes = [
@@ -47,5 +48,10 @@ export const routes = [
         screen: <Post />,
         // title: "Post",
         // isHidden: true
+    }
+    , {
+        path: '/todos',
+        screen: <Todos />,
+        title: "Todos",
     }
 ]

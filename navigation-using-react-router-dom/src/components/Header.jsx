@@ -87,5 +87,26 @@
 
 // export default Header
 
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { routes } from '../routes'
+
+const Header = () => {
+    return (
+        <header>
+            <nav>
+                <ul className='flex items-center gap-4'>
+                    {routes.map((route, index) =>
+                        <li key={index} className='rounded border-cyan-500 border-1'>
+                            <Link to={route.path}>{route.title}</Link>
+                        </li>)}
+                </ul>
+            </nav>
+        </header>
+    )
+}
+
+export default Header
+
 
 
