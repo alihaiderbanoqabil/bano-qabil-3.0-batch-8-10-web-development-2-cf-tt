@@ -29,7 +29,7 @@ const todosSlice = createSlice({
         });
         builder.addCase(fetchTodos.fulfilled, (state, { type, payload }) => {
             state.isLoading = false;
-            console.log('payload', payload);
+            // console.log('payload', payload);
 
             state.todos = payload;
         });

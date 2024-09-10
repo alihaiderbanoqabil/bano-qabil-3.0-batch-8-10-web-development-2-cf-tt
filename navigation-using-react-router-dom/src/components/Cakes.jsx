@@ -6,7 +6,7 @@ const Cakes = () => {
     // const cake = useSelector(state => state.cake);
     const { cake } = useSelector(state => state);
     // console.log(state);
-    console.log(cake.numOfCakes);
+    // console.log(cake.numOfCakes);
   return (
     <p>Total number of cakes in stock : {cake.numOfCakes}</p>
   )

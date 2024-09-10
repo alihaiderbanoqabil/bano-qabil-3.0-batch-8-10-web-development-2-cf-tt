@@ -6,7 +6,7 @@ import { order1Cake, orderSpecificNumberOfCakes, restockSpecificNumberOfCakes } 
 import { fetchTodos } from '../store/features/todosSlice'
 import Header from '../components/Header'
 import TodosComponent from '../components/TodosComponent'
-import { useGetPostsQuery, useLazyGetPostsQuery } from '../store/features/apiSlice'
+import { useAddPostMutation, useGetPostsQuery, useLazyGetPostsQuery } from '../store/features/apiSlice'
 // import Header from '../components/Header'
 const routes = [
     {
@@ -19,8 +19,18 @@ const routes = [
     },
 ]
 const Dashboard = () => {
-    const { isError, isFetching, isLoading, data, isSuccess, error } = useGetPostsQuery(`?userId=1`);
-    console.log({ isError, isFetching, isLoading, data, isSuccess, error });
+    const token = "kdsjhajkhjkhdasjk"
+    // const { data, isSuccess, error, isError, isLoading, refetch } = useGetPostsQuery(`?userId=1`);
+    // console.log({ data, isSuccess, error, isError, isLoading });
+    // const [getPosts, { data, isSuccess, error, isError, isLoading, refetch }] = useLazyGetPostsQuery();
+    const [addPost, { data, isSuccess, error, isError, isLoading, }] = useAddPostMutation();
+    console.log({ data, isSuccess, error, isError, isLoading });
+
+    // useEffect(() => {
+    //     if (token) {
+    //         getPosts(`?userId=1&token=${token}`)
+    //     }
+    // }, [token])
 
     // useLazyGetPostsQuery()
     const dispatch = useDispatch()
@@ -49,6 +59,7 @@ const Dashboard = () => {
                 <button className='bg-cyan-500' onClick={() => dispatch(orderSpecificNumberOfCakes(numberOfCakes))} disabled={!numberOfCakes}>Order {numberOfCakes} Cake</button>
                 <input className='rounded border-cyan-500 border-2' type="number" value={restockedCakes} onChange={(e) => { setRestockedCakes(e.target.value) }} />
                 <button className='bg-cyan-500' onClick={() => dispatch(restockSpecificNumberOfCakes(+restockedCakes))} disabled={!restockedCakes}>Restock {restockedCakes} Cake</button>
+                <button className='bg-cyan-500' onClick={() => { addPost({ title: 'Post1', description: 'description1' }) }}>Add Post</button>
             </div>
             {/* <TodosComponent {...props} /> */}
             <Outlet />

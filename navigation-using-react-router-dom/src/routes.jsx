@@ -38,11 +38,11 @@ export const routes = [
     //     screen: <Posts />,
     //     title: "Posts"
     // },
-    {
-        path: '/',
-        screen: <Dashboard />,
-        title: "Dashboard"
-    },
+    // {
+    //     path: '/',
+    //     screen: <Dashboard />,
+    //     title: "Dashboard"
+    // },
     {
         path: '/posts/:postId',
         screen: <Post />,

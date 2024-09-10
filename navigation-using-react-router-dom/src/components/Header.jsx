@@ -96,6 +96,9 @@ const Header = () => {
         <header>
             <nav>
                 <ul className='flex items-center gap-4'>
+                    <li className='rounded border-cyan-500 border-1'>
+                        <Link to={'/'}>Home</Link>
+                    </li>
                     {routes.map((route, index) =>
                         <li key={index} className='rounded border-cyan-500 border-1'>
                             <Link to={route.path}>{route.title}</Link>
