@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import React, { lazy, Suspense, useEffect, useLayoutEffect } from 'react'
+import { BrowserRouter, Form, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './screens/Home'
 const LazyHome = lazy(() => import('./screens/Home'));
 import Contact from './screens/Contact'
@@ -14,46 +14,58 @@ import Dashboard from './screens/Dashboard.jsx'
 import DashboardMessages from './screens/DashboardMessages.jsx'
 import DashboardTasks from './screens/DashboardTasks.jsx'
 import Todos from './screens/Todos.jsx'
+import { ErrorBoundary } from './components/ErrorBoundary.jsx';
+import { MyComponent } from './components/MyComponent.jsx';
+import { MyForm } from './components/MyForm.jsx';
 
 const App = () => {
+  useLayoutEffect(() => {
+    console.log(`useLayoutEffect calling`);
+  }, [])
+  useEffect(() => {
+    console.log(`useEffect calling`);
+  }, [])
+
   // const user = {
   //   email: "ali@gmail.com"
   // };
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          {/* <Route path="/" element={<Dashboard />}>
-            <Route
-              path="messages"
-              element={<DashboardMessages />}
-            />
-            <Route path="tasks" element={<DashboardTasks />} />
-          </Route> */}
-          {/* {
-            routes.map(({ path, screen }, index) => {
-              return <Route key={`${index}-${path}`} path={path} element={screen} />
-            })
-          } */}
-          <Route path='/' element={<Suspense fallback={'Loading...'}>
-            <LazyHome />
-          </Suspense>} />
-          <Route path='/contact' element={<Suspense fallback={'Loading...'}>
-            <LazyContact />
-          </Suspense>} />
-          <Route path='/about' element={<Suspense fallback={'Loading...'}>
-            <LazyAbout />
-          </Suspense>} />
-          {/* <Route path='/' element={<Home />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/about' element={<About />} /> */}
-          <Route path='*' element={<PageNotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
-
-
+    <MyForm />
+    // <MyComponent />
+    // <ErrorBoundary>
+    //   <BrowserRouter>
+    //     <Layout>
+    //       <Routes>
+    //         {/* <Route path="/" element={<Dashboard />}>
+    //         <Route
+    //           path="messages"
+    //           element={<DashboardMessages />}
+    //         />
+    //         <Route path="tasks" element={<DashboardTasks />} />
+    //       </Route> */}
+    //         {/* {
+    //         routes.map(({ path, screen }, index) => {
+    //           return <Route key={`${index}-${path}`} path={path} element={screen} />
+    //         })
+    //       } */}
+    //         <Route path='/' element={<Suspense fallback={'Loading...'}>
+    //           <LazyHome />
+    //         </Suspense>} />
+    //         <Route path='/contact' element={<Suspense fallback={'Loading...'}>
+    //           <LazyContact />
+    //         </Suspense>} />
+    //         <Route path='/about' element={<Suspense fallback={'Loading...'}>
+    //           <LazyAbout />
+    //         </Suspense>} />
+    //         {/* <Route path='/' element={<Home />} />
+    //       <Route path='/contact' element={<Contact />} />
+    //       <Route path='/about' element={<About />} /> */}
+    //         <Route path='*' element={<PageNotFound />} />
+    //       </Routes>
+    //     </Layout>
+    //   </BrowserRouter>
+    // </ErrorBoundary>
   )
 }
 
