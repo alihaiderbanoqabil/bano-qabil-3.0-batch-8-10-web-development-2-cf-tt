@@ -11,7 +11,6 @@ const Users = () => {
     useEffect(() => {
         if (data) {
             const columns = Object.keys(data[0]).map((key) => {
-
                 if (key === 'company') {
                     return {
                         title: key.toUpperCase(),
@@ -57,6 +56,7 @@ const Users = () => {
                     title: 'ALBUMS',
                     key: 'albums',
                     render: (value, record, index) => <Link to={`/albums?userId=${record.id}`}>Albums</Link>
+                    // render: (value, record, index) => <Link to={`/albums/${record.id}`}>Albums</Link>
                 })
             console.log(columns);
             setColumns(columns)

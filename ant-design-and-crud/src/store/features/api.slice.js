@@ -31,24 +31,26 @@ export const jsonServerApi = createApi({
         }),
         getPosts: builder.query({
             query: (querySting) => {
+                // console.log(querySting);
+
                 return `/posts${querySting || ''}`
             },
             providesTags: ['Post'],
         }),
         getComments: builder.query({
             query: (querySting) => {
-                return `/comments${querySting}`
+                return `/comments${querySting || ''}`
             },
             providesTags: ['Comment'],
         }),
         getAlbums: builder.query({
             query: (querySting) => {
-                return `/albums${querySting}`
+                return `/albums${querySting || ''}`
             },
             providesTags: ['Album'],
         }),
         getPhotos: builder.query({
-            query: (querySting) => {
+            query: (querySting = '') => {
                 return `/photos${querySting}`
             },
             providesTags: ['Photo'],
@@ -56,7 +58,28 @@ export const jsonServerApi = createApi({
         addPost: builder.mutation({
             query: (data) => {
                 console.log(data, 'data');
-                return { url: `posts`, body: data, method: 'POST', headers: { 'Authorization': `Bearer TOKEN` } }
+                return {
+                    url: `/posts`, body: data, method: 'POST',
+                    //  headers: { 'Authorization': `Bearer TOKEN` }
+                }
+            },
+            invalidatesTags: ['Post'],
+        }),
+        updatePost: builder.mutation({
+            query: (data) => {
+                console.log(data, 'data');
+                return {
+                    url: `/posts/${data.id}`, body: data, method: 'PATCH',
+                }
+            },
+            invalidatesTags: ['Post'],
+        }),
+        deletePost: builder.mutation({
+            query: (id) => {
+                console.log(id, 'id');
+                return {
+                    url: `/posts/${id}`, method: 'DELETE',
+                }
             },
             invalidatesTags: ['Post'],
         }),
@@ -86,7 +109,8 @@ export const {
     useLazyGetAlbumsQuery,
     useGetPhotosQuery,
     useLazyGetPhotosQuery,
-    useAddPostMutation
+    useAddPostMutation,
+    useUpdatePostMutation, useDeletePostMutation
 } = jsonServerApi
 
 
